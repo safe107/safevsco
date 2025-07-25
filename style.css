@@ -1,16 +1,44 @@
 body {
+  margin: 0;
   background-color: #0f0f0f;
   color: #f1f1f1;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* CENTRALIZA NA VERTICAL */
+  align-items: center;     /* CENTRALIZA NA HORIZONTAL */
   flex-direction: column;
   height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.serio,
+.legal {
+  position: absolute;
+  object-fit: contain;
+  opacity: 0.3;
+  max-width: 20vw; /* responsivo: 20% da largura da tela */
+  max-height: 20vh; /* 20% da altura */
+  width: auto;
+  height: auto;
+}
+
+.serio {
+  top: 10px;
+  left: 10px;
+}
+
+.legal {
+  bottom: 10px;
+  right: 10px;
 }
 
 h1 {
+  margin: 60px;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
@@ -21,4 +49,23 @@ p {
   padding: 1rem 2rem;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  max-width: 90vw;
+}
+
+/* Responsivo para telas pequenas (celular) */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.2rem;
+  }
+
+  .serio,
+  .legal {
+    max-width: 25vw;
+    max-height: 25vh;
+  }
 }
